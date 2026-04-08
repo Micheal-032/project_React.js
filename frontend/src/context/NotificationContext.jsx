@@ -26,7 +26,7 @@ export const NotificationProvider = ({ children }) => {
         }
 
         // Connect to Socket.IO backend
-        const newSocket = io(import.meta.env.PROD ? 'https://social-media-backend-3ybx.onrender.com' : 'http://localhost:5000');
+        const newSocket = io(import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://social-media-backend-3ybx.onrender.com' : 'http://localhost:5000'));
 
         newSocket.on('connect', () => {
             console.log('Socket connected');
